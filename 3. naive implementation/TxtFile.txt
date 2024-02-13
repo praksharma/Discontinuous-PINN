@@ -1,0 +1,6 @@
+Here we used the a naive implementation, where the gradient of the PDE and BC loss wrt to the inpuuts x,y is used as a pointwise weighting to negagte the affect of discontinuous BCs. We had some improvement. We can now try to add some if else conditions
+
+For example, We can plot a histogram to understand the distribution. Let us assume that we want to supress values with the gradients (|L_x| + |L_y|) more than the 0.4 then we kick those entries from the training dataset or modify the BC_coeff to zero.
+
+loop ever each element of the tensor
+ PDE_coeff = 1/(abs(L_x) + abs(L_y) + pde_multiple)
